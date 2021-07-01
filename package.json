@@ -1,0 +1,45 @@
+{
+  "name": "quick-screenshot",
+  "description": "WIP",
+  "version": "0.0.1",
+  "author": {
+    "name": "fiahfy",
+    "email": "d.fiahfy@gmail.com",
+    "url": "https://fiahfy.github.io/"
+  },
+  "dependencies": {
+    "webextension-polyfill-ts": "^0.25.0"
+  },
+  "devDependencies": {
+    "@fiahfy/eslint-config": "^0.0.14",
+    "copy-webpack-plugin": "^9.0.1",
+    "crx-hotreload": "^1.0.6",
+    "eslint": "^7.29.0",
+    "husky": "^7.0.0",
+    "prettier": "^2.3.2",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "keywords": [
+    "chrome extension",
+    "webpack"
+  ],
+  "private": true,
+  "productName": "Quick Screenshot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fiahfy/quick-screenshot"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack -w --config webpack.config.dev.js",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint -f codeframe --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lint:prettier": "prettier -c --ignore-path .gitignore .",
+    "package": "npm run build -- --mode=production && mkdir -p dist && zip -r dist/archive.zip app",
+    "prepare": "husky install",
+    "test": "npm run lint"
+  }
+}
